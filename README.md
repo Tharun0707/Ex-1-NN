@@ -1,7 +1,7 @@
-<H3>ENTER YOUR NAME</H3>
-<H3>ENTER YOUR REGISTER NO.</H3>
+<H3>ENTER YOUR NAME : THARUN SRIDHAR</H3>
+<H3>ENTER YOUR REGISTER NO.: 212223230230</H3>
 <H3>EX. NO.1</H3>
-<H3>DATE</H3>
+<H3>20-08-2025</H3>
 <H1 ALIGN =CENTER> Introduction to Kaggle and Data preprocessing</H1>
 
 ## AIM:
@@ -37,11 +37,61 @@ STEP 5:Normalizing the data<BR>
 STEP 6:Splitting the data into test and train<BR>
 
 ##  PROGRAM:
-TYPE YOUR CODE HERE
+```
+import pandas as pd
+import io
+from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import MinMaxScaler
+from sklearn.model_selection import train_test_split
+data = pd.read_csv("Iris.csv")
+data
+data.head()
+X=data.iloc[:,:-1].values
+X
+y=data.iloc[:,-1].values
+y
+data.isnull().sum()
+data.duplicated()
+data.describe()
+data = data.drop(['Id','SepalLengthCm','SepalWidthCm'], axis=1)
+data.head()
+scaler=MinMaxScaler()
+# Exclude the 'Species' column before scaling
+numerical_data = data.drop('Species', axis=1)
+df1 = pd.DataFrame(scaler.fit_transform(numerical_data), columns=numerical_data.columns)
+print(df1)
+X_train ,X_test ,y_train,y_test=train_test_split(X,y,test_size=0.2)
+X_train
+X_test
+print("Lenght of X_test ",len(X_test))
+```
 
 
 ## OUTPUT:
-SHOW YOUR OUTPUT HERE
+<img width="584" height="346" alt="image" src="https://github.com/user-attachments/assets/c9126bbc-1d1d-4119-b8dc-f16dd40af3bd" />
+
+<img width="620" height="184" alt="image" src="https://github.com/user-attachments/assets/2cc41ba9-47d0-4019-9987-415294870ff9" />
+
+<img width="557" height="546" alt="image" src="https://github.com/user-attachments/assets/4aba48eb-7f32-429e-99f7-9c9b5f90e1b0" />
+
+<img width="669" height="678" alt="image" src="https://github.com/user-attachments/assets/483ce884-7a17-43b7-a1ac-36373ff01aa6" />
+
+<img width="227" height="236" alt="image" src="https://github.com/user-attachments/assets/cdec9702-bbc1-42cf-be6d-9cdcc6f8d924" />
+
+<img width="247" height="381" alt="image" src="https://github.com/user-attachments/assets/66dac154-1baa-4b63-8180-438a95a236ab" />
+
+<img width="646" height="259" alt="image" src="https://github.com/user-attachments/assets/3c94d42e-9b6f-4ef6-80e4-a7c3b53cd0b7" />
+
+<img width="388" height="192" alt="image" src="https://github.com/user-attachments/assets/4056a11a-236a-45a4-b4d2-e1f306076dcf" />
+
+<img width="441" height="223" alt="image" src="https://github.com/user-attachments/assets/31d03a75-fc1f-43c7-94b0-152d6514e959" />
+
+<img width="511" height="726" alt="image" src="https://github.com/user-attachments/assets/afb523ee-fa4f-4c49-bfad-b1f5ba762bdd" />
+
+<img width="418" height="449" alt="image" src="https://github.com/user-attachments/assets/7ac0a9fc-d9c9-465b-9745-1e1f5f9d1d42" />
+
+<img width="262" height="41" alt="image" src="https://github.com/user-attachments/assets/dc093058-8909-4707-9dab-2c50e0d61b99" />
+
 
 
 ## RESULT:
